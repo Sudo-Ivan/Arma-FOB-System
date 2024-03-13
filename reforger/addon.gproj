@@ -1,0 +1,8 @@
+GameProject {
+ ID "fobsystem"
+ GUID "60DB11810A65601E"
+ TITLE "fobsystem"
+ Dependencies {
+  "58D0FB3206B6F859"
+ }
+}
