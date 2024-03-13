@@ -6,9 +6,9 @@ WIP 2023-2024
 
 WIP 2024
 
-**Update March 2024:**
+## Update March 2024:
 
-I stopped development of this project for about a year, but will be resuming it again under a unified repo.
+I stopped development of this project for about a year, but will be resuming it again under a unified repo to bring this to both Arma 3 and Reforger.
 
 **Idea: A points based FOB building system that can be implemented into any mission. I want it to be similar to Squads build and resupply system.**
 
