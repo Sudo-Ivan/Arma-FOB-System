@@ -1,0 +1,57 @@
+onLoadMission = "Builder";
+onLoadIntro = "Build That FOB!";
+onLoadName = "Builder";
+briefingName = "Builder";
+overviewText = "Survive by scavenging equipment, in a randomly selected city, against ever increasing waves of hostiles.";
+author = "Ivan";
+
+respawnOnStart = 1;
+respawnDelay = 2;
+
+corpseManagerMode = 2;
+corpseLimit = 5;
+wreckLimit = 2;
+corpseRemovalMinTime = 180;
+corpseRemovalMaxTime = 181;
+wreckRemovalMinTime = 30;
+wreckRemovalMaxTime = 50;
+
+class Header
+{
+	gameType   = Defend;
+	minPlayers = 1;
+	maxPlayers = 25;
+};
+
+class CfgFunctions
+{
+	#include "score\Functions.hpp"
+	#include "builder\Functions.hpp"
+	#include "build\Functions.hpp"
+	#include "player\Functions.hpp"
+};
+
+class CfgRemoteExec
+{
+	class Functions
+	{
+		mode = 2;
+		class updateHud {};
+
+		class build_fnc_doPickup {};
+		class build_fnc_doPickupLocal {};
+		class build_fnc_doCreate {};
+		class build_fnc_doPlace {};
+		class build_fnc_doPlaceLocal {};
+		class build_fnc_doMove {};
+		class build_fnc_doMoveLocal {};
+	};
+};
+
+#include "dialog\defines.hpp"
+class RscTitles
+{
+	#include "score\hud.hpp"
+};
+
+#include "builder\dialog.hpp"
