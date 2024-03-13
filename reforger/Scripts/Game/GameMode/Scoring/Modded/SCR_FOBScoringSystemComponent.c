@@ -1,3 +1,5 @@
+// Handels the scoring for the FOB system
+
 class ScoreSystem
 {
     private ref map<string, int> scores;
