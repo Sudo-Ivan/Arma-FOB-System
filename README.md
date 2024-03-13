@@ -1,8 +1,8 @@
-## Arma 3 FOB System (WIP)
+## Arma 3 FOB System (WIP) 🚧
 
 WIP 2023-2024
 
-## Arma Reforger FOB System (WIP)
+## Arma Reforger FOB System (WIP) 🚧
 
 WIP 2024
 
@@ -16,6 +16,6 @@ I stopped development of this project for about a year, but will be resuming it 
 
 - Construction: Instead of buying and placing objects, players must build each object. 
 - Pointsperbox: Points per box instead of a global points bank.
-- Custom sounds
+- Custom sounds & Icons
 
 #### For Arma 3: Shop/Build System Ported from https://github.com/Omnomios/DynamicBulwarks - all credit to the Bulwarks team for those features.
