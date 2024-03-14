@@ -17,4 +17,4 @@ jobs:
       - uses: arma-actions/sqflint@v1.0
         name: Validate with SQFLint with custom arguments
         with:
-          args: --exit w --directory /
+          args: --exit w --directory /arma3
