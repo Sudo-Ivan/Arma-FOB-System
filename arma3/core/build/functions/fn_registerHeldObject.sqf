@@ -3,10 +3,10 @@
 // Return Value:
 // TRUE - The object was registered as held
 // FALSE - The object was not registered as held (because something else is already held)
-params ["_player", "_dropFunction", "_args"];
+params ["_object", "_player"];
 
-if(!call build_fnc_isHoldingObject) then {
-    _player setVariable ["heldObject", [_dropFunction, _args]];
+if(!(_player call build_fnc_isHoldingObject)) then {
+    _player setVariable ["heldObject", [_object]];
     true;
 } else {
     false;

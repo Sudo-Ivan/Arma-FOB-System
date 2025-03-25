@@ -2,7 +2,7 @@
 params ["_player"];
 private _heldObject = _player getVariable ["heldObject", nil];
 if(isNil "_heldObject") then {
-    false;
+    false
 } else {
-    true;
+    true
 };
