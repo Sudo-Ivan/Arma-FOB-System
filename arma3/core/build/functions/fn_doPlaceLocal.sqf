@@ -1,8 +1,17 @@
-params ["_object", "_objectPos", "_objectDir", "_objectUp", "_caller", "_drop"];
+params [
+    ["_object", objNull, [objNull]],
+    ["_objectPos", [0,0,0], [[]]],
+    ["_objectDir", 0, [0]],
+    ["_objectUp", [0,0,1], [[]]],
+    ["_caller", objNull, [objNull]],
+    ["_drop", false, [false]]
+];
+
+if (isNull _object || isNull _caller) exitWith {};
 
 if (_object getVariable ["isBeingBuilt", false]) then {
     hint "Object is still being constructed";
-    return;
+    exitWith {};
 };
 
 _object setPosATL _objectPos;
