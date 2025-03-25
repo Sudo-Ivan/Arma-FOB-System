@@ -7,25 +7,20 @@
 	**/
 
 
-params ["_banker", "_shopPrice", "_box"];
+params [
+    ["_player", objNull, [objNull]],
+    ["_amount", 0, [0]],
+    ["_box", 1, [0]]
+];
+
+if (isNull _player || _amount == 0) exitWith {};
 
 private _boxVarName = format ["box_%1_balance", _box];
 private _boxBalance = missionNamespace getVariable [_boxVarName, 0];
+private _boxBalanceChange = _boxBalance + _amount;
 
-switch (_banker) do {
-    case west: {
-        _boxBalanceChange = _boxBalance - _shopPrice;
-        missionNamespace setVariable [_boxVarName, _boxBalanceChange];
-        sleep 0.1;
-        [west, _box] remoteExec ["buildPoints_fnc_updateHud"];
-    };
-    case east: {
-        _boxBalanceChange = _boxBalance - _shopPrice;
-        missionNamespace setVariable [_boxVarName, _boxBalanceChange];
-        sleep 0.1;
-        [east, _box] remoteExec ["buildPoints_fnc_updateHud"];
-    };
-    default {
-        hint "Error: Banker not found";
-    };
+if (_boxBalanceChange >= 0) then {
+    missionNamespace setVariable [_boxVarName, _boxBalanceChange, true];
+    sleep 0.1;
+    [west, _box] remoteExec ["buildPoints_fnc_updateHud", 0];
 };

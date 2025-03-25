@@ -1,13 +1,18 @@
-params ["_object", "_player"];
+params [
+    ["_player", objNull, [objNull]],
+    ["_object", objNull, [objNull]],
+    ["_pos", [0,0,0], [[]]],
+    ["_dir", 0, [0]],
+    ["_up", [0,0,1], [[]]]
+];
 
-private _objectPos = getPosATL _object;
-private _objectDir = getDir _object;
-private _objectUp = [0, 0, 1];
+if (isNull _player || isNull _object) exitWith {};
 
-[_object, _objectPos, _objectDir, _objectUp, _player, false] remoteExec ["build_fnc_doPlaceLocal", 0];
+[_object, _pos, _dir, _up, _player, true] remoteExec ["build_fnc_doPlaceLocal", 0];
 
-_player setVariable ["buildItemHeld", false, true];
-_object setVariable ["buildItemHeld", false, true];
+if (isPlayer _player) then {
+    _player setVariable ["buildItemHeld", false, true];
+};
 
 PLAYER_OBJECT_LIST pushBack _object;
 

@@ -9,10 +9,21 @@
 if (hasInterface) then {
     disableSerialization;
 
-    params ["_side", "_box"];
+    params [
+        ["_side", west, [west]],
+        ["_box", 1, [0]]
+    ];
+
+    if (_box < 1) exitWith {};
 
     private _boxVarName = format ["box_%1_balance", _box];
     private _boxBalance = missionNamespace getVariable [_boxVarName, 0];
+
+    {
+        if (side _x == _side) then {
+            _x setVariable ["boxBalance", _boxBalance, true];
+        };
+    } forEach allPlayers;
 
     private _display = uiNamespace getVariable ["buildPoints_hud", displayNull];
     if (isNull _display) exitWith {};

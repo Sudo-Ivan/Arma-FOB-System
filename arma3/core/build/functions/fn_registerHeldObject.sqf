@@ -8,7 +8,7 @@ params [
     ["_player", objNull, [objNull]]
 ];
 
-if (isNull _object || isNull _player) exitWith {};
+if (isNull _object || isNull _player) exitWith {false};
 
 if (_player call build_fnc_isHoldingObject) then {
     _player call build_fnc_dropHeldObject;
