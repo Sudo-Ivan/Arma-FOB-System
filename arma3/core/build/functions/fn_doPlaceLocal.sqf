@@ -1,4 +1,22 @@
-params ["_object", "_objectPos", "_objectDir", "_objectUp", "_caller", "_drop"];
+params ["_object", "_player"];
+
+if (_object getVariable ["isBeingBuilt", false]) then {
+    hint "Object is still being constructed";
+    return;
+};
+
+private _pos = getPosATL _object;
+private _dir = getDir _object;
+
+_object setPosATL _pos;
+_object setDir _dir;
+
+[_object, _player] call build_fnc_registerHeldObject;
+[_object, _player] call build_fnc_unregisterHeldObject;
+
+if (_object getVariable ["shopPrice", 0] > 0) then {
+    [_player, _object getVariable ["shopPrice", 0], _object getVariable ["box", 1]] call buildPoints_fnc_banker;
+};
 
 maxMoveUpHeight = 5; // maximum height in meters
 

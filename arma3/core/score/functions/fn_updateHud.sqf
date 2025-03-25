@@ -9,6 +9,17 @@
 if (hasInterface) then {
     disableSerialization;
 
+    params ["_side", "_box"];
+
+    private _boxVarName = format ["box_%1_balance", _box];
+    private _boxBalance = missionNamespace getVariable [_boxVarName, 0];
+
+    private _display = uiNamespace getVariable ["buildPoints_hud", displayNull];
+    if (isNull _display) exitWith {};
+
+    private _ctrl = _display displayCtrl 1000;
+    _ctrl ctrlSetText format ["Box %1: %2", _box, _boxBalance];
+
     private _pointsWHUD = missionNamespace getVariable ["globalWestBankBalance", 0];
     private _hudTextW = format ["<t size='1.2' color='#ffffff'>%2</t><br/><t size='0.9' color='#dddddd'>West points: %1</t>", _pointsWHUD];
 
