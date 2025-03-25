@@ -47,10 +47,6 @@ clearWeaponCargoGlobal _shopVehicle;
 clearMagazineCargoGlobal _shopVehicle;
 clearBackpackCargoGlobal _shopVehicle;
 
-// This function is called when a player selects a shop object to spawn.
-// doPickup relies on the values below so if you change them, make sure to change them in doPickup as well.
-[_player, _shopVehicle, [0,_VecRadius + 1.5,0.02], _shopDir] call build_fnc_doPickup;
-
 [_shopVehicle, "Build Object", "\a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa", "\a3\ui_f\data\IGUI\Cfg\Actions\repair_ca.paa", "true", "true", {
     params ["_target", "_player", "_params", "_actionData"];
     private _progress = _target getVariable ["buildProgress", 0];
@@ -67,3 +63,5 @@ clearBackpackCargoGlobal _shopVehicle;
 }, {}, {}, [], 3, nil, true, false] call BIS_fnc_holdActionAdd;
 
 [_player, "AinvPknlMstpSnonWnonDnon_medic_1"] remoteExec ["playMove", 0];
+
+[_player, _shopVehicle, [0,_VecRadius + 1.5,0.02], _shopDir] call build_fnc_doPickup;
